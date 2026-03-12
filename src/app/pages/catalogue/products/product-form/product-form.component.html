@@ -66,7 +66,10 @@
                   <div class="form-group">
                     <label for="order" class="label col-form-label">{{ 'COMMON.ORDER' | translate}}</label>
                     <input type="text" class="form-control inputText" id="order" formControlName='sortOrder'
-                      ngxValidateNumber placeholder="{{ 'COMMON.ORDER' | translate}}" required>
+                      ngxValidateNumber placeholder="{{ 'COMMON.ORDER' | translate}}">
+                    <span *ngIf="form.get('sortOrder').invalid && form.get('sortOrder').touched" class="err-message">
+                      {{ 'COMMON.NUMERIC_RULE' | translate }}
+                    </span>
                   </div>
                 </div>
               </div>

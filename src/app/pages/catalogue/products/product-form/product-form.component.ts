@@ -186,7 +186,7 @@ export class ProductFormComponent implements OnInit {
       // rebatePrice: [Validators.required, Validators.pattern(validators.number)],
       // startDate: [new Date()],
       // endDate: [new Date()],
-      sortOrder: ['', [Validators.required, Validators.pattern(validators.number)]],
+      sortOrder: [0, [Validators.pattern(validators.number)]],
       // productShipeable: [false, [Validators.required]],
       productSpecifications: this.fb.group({
         weight: [''],

@@ -144,7 +144,7 @@ export class ManageInventoryComponent implements OnInit {
         this.dialogService.open(ShowcaseDialogComponent, {})
           .onClose.subscribe(res => {
             if (res) {
-              this.inventoryService.deleteProduct(event.data.id)
+              this.inventoryService.deleteProduct(this.productId, event.data.id)
                 .subscribe((data) => {
                   this.toastr.success(this.translate.instant('INVENTORY.INVENTORY_REMOVED'));
                   this.getList();

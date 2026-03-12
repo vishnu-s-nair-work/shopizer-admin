@@ -14,11 +14,11 @@ export class ProductImageService {
   }
 
   addImageUrl(id) {//post
-    return this.crudService.getBaseUrl() + `/v1/private/product/${id}/images`;
+    return this.crudService.getBaseUrl() + `/v1/private/product/${id}/image`;
   }
 
   removeImageUrl(id) {//delete
-    return this.crudService.getBaseUrl() + `/v1/private/product/${id}/images`;
+    return this.crudService.getBaseUrl() + `/v1/private/product/${id}/image`;
   }
 
   getImages(productId): Observable<any> {
@@ -30,7 +30,7 @@ export class ProductImageService {
   }
 
   createImage(id, uploadData): Observable<any> {
-    return this.crudService.post(`/v1/private/product/${id}/images`, uploadData);
+    return this.crudService.post(`/v1/private/product/${id}/image`, uploadData);
   }
 
   updateImage(productId, event): Observable<any> {

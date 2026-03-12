@@ -52,6 +52,6 @@ export class CustomersService {
     const params = {
       store: this.storageService.getMerchant()
     };
-    return this.crudService.put('/v1/private/customer/password', obj, { params });
+    return this.crudService.post('/v1/auth/customer/password', obj, { params });
   }            
 }

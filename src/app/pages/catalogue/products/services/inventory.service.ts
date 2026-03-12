@@ -13,11 +13,11 @@ export class InventoryService {
   }
 
   getListOfInventories(idProduct, params): Observable<any> {
-    return this.crudService.get(`/v1/private/product/${idProduct}/inventory`, params);
+    return this.crudService.get(`/v1/private/product/inventory`, { ...params, productId: idProduct });
   }
 
-  createInventory (inventory): Observable<any> {
-    return this.crudService.post(`/v1/private/product/inventory`, inventory);
+  createInventory(inventory): Observable<any> {
+    return this.crudService.post(`/v1/private/product/${inventory.productId}/inventory`, inventory);
   }
 
   getInventoryById(id, idInventory): Observable<any> {
@@ -27,8 +27,8 @@ export class InventoryService {
     return this.crudService.get(`/v1/private/product/${id}/inventory/${idInventory}`, params);
   }
 
-  deleteProduct(id): Observable<any> {
-    return this.crudService.delete(`/v1/private/product/inventory/${ id }`);
+  deleteProduct(productId, id): Observable<any> {
+    return this.crudService.delete(`/v1/private/product/${productId}/inventory/${id}`);
   }
 
   updateInventory(idProduct, idInventory, inventory): Observable<any> {

@@ -37,14 +37,14 @@ export class ProductService {
     const params = {
       lang: '_all'
     };
-    return this.crudService.get(`/v1/product/${id}`, params);
+    return this.crudService.get(`/v2/private/product/${id}`, params);
   }
 
   getProductDefinitionById(id): Observable<any> {
     const params = {
       lang: '_all'
     };
-    return this.crudService.get(`/v2/private/product/definition/${id}`, params);
+    return this.crudService.get(`/v2/private/product/${id}`, params);
   }
 
   getProductDefinitionBySku(sku): Observable<any> {
@@ -58,7 +58,7 @@ export class ProductService {
     const params = {
       store: this.storageService.getMerchant()
     };
-    return this.crudService.post(`/v2/private/product/definition`, product, { params });
+    return this.crudService.post(`/v2/private/product`, product, { params });
   }
 
   deleteProduct(id): Observable<any> {
@@ -84,10 +84,10 @@ export class ProductService {
     return this.crudService.delete(`/v1/private/product/${productId}/category/${categoryId}`);
   }
   getProductByOrder(): Observable<any> {
-    return this.crudService.get(`/v1/product?count=200&lang=en&page=0`)
+    return this.crudService.get(`/v1/products?count=200&lang=en&page=0`)
   }
   getProductOrderById(id): Observable<any> {
-    return this.crudService.get(`/v1/product?category=${id}&count=200&lang=en&page=0`)
+    return this.crudService.get(`/v1/products?category=${id}&count=200&lang=en&page=0`)
   }
   getProductIdRoute(router: Router, location: Location) {
     const tree: UrlTree = router.parseUrl(location.path());
