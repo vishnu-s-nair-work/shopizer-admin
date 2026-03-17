@@ -29,16 +29,17 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     customLaunchers: {
-      Chrome_travis_ci: {
+      ChromeHeadless: {
         base: 'Chrome',
-        flags: ['--no-sandbox']
+        flags: ['--no-sandbox', '--headless', '--disable-gpu', '--remote-debugging-port=9222']
       }
     },
     singleRun: false
   };
 
-  if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci'];
+  if (process.env.CI) {
+    configuration.browsers = ['ChromeHeadless'];
+    configuration.singleRun = true;
   }
 
   config.set(configuration);
